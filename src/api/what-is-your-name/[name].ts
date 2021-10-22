@@ -5,6 +5,7 @@ export default function handler(
   req: GatsbyFunctionRequest,
   res: GatsbyFunctionResponse
 ) {
+  console.log(req)
   console.log(req.params)
   res.cookie('name',req.params.name, { maxAge: 900000, httpOnly: true });
   res.send(`<h1>Hello ${_.capitalize(req.params.name)}</h1>

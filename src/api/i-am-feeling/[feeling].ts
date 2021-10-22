@@ -5,7 +5,7 @@ export default function handler(
   req: GatsbyFunctionRequest,
   res: GatsbyFunctionResponse
 ) {
-  console.log(req.cookies)
+  console.log(req)
   const name = _.capitalize(req.cookies.name)
   switch (req.params.feeling) {
     case "good":
