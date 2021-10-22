@@ -6,5 +6,15 @@ export default function handler(
   res: GatsbyFunctionResponse
 ) {
   console.log(req.params)
-  res.send(`Hello ${_.capitalize(req.params.name)}`)
+  res.cookie('name',req.params.name, { maxAge: 900000, httpOnly: true });
+  res.send(`<h1>Hello ${_.capitalize(req.params.name)}</h1>
+           <div>
+           <p>How are you feeling today?</p>
+           <ul>
+           <li><a href="/api/i-am-feeling/good">good</li>
+           <li><a href="/api/i-am-feeling/bad">bad</li>
+           <li><a href="/api/i-am-feeling/meh">meh</li>
+           </ul>
+           </div>
+           `)
 }
